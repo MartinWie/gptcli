@@ -4,7 +4,11 @@ from config.credentials import get_api_key
 from gpt.request import openai_request, print_streamed_response
 
 
-def main(args):
+def main():
+    openai.api_key = get_api_key()
+
+    args = get_args()
+
     model = args.m
     temperature = args.t
     verbose = args.v
@@ -14,9 +18,9 @@ def main(args):
         input_string = get_multiline_input()
 
     if verbose:
-        print(f"Prompt: {input_string}")
         print(f"Selected model: {model}")
         print(f"Selected temperature: {temperature}")
+        print(f"Prompt: {input_string}")
         print("Response:")
 
     response = openai_request(input_string, model, temperature)
@@ -24,8 +28,4 @@ def main(args):
 
 
 if __name__ == "__main__":
-    openai.api_key = get_api_key()
-
-    args = get_args()
-
-    main(args)
+    main()
