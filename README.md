@@ -55,7 +55,7 @@ qprom -p "Translate the following English text to French: '{text}'" -m gpt-4 -t 
 
 This will run the script with the provided prompt, using the `gpt-4` model, a temperature of `0.7`, and verbose mode enabled.
 
-### Multi line promting
+### Multi line prompting
 To facilitate multi-line input for the prompt, invoke qprom without utilizing the -p parameter. This will prompt you for your input at runtime, where you can provide multiple lines as needed. To signal the end of your input, simply enter the string 'END'.
 
 ```bash
