@@ -76,6 +76,7 @@ This will run qprom with default values model: `gpt-4`, a temperature of `0.7` a
 * Testing
 * Add conversation mode
 * Add option to select default model in config
+* Add option to re-set the API token
 * Add option to set the token limit for the conversation modes history
 * Add option to disable streaming and only print the full response
 
