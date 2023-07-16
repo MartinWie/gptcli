@@ -29,12 +29,12 @@ pip install qprom
 
 ## Usage
 
-| Argument | Type | Default | Choices | Description |
-|---|---|---|---|---|
-| `-p` | String | None | None | Option to directly enter your prompt |
-| `-m` | String | `gpt-4` | `gpt-3.5-turbo`, `gpt-4` | Option to select the model |
-| `-t` | Float | `0.3` | Between `0` and `2` | Option to configure the temperature |
-| `-v` | Boolean | `False` | None | Enable verbose mode |
+| Argument | Type | Default | Choices | Description | Optional |
+|---|---|---|---|---|---|
+| `-p` | String | None | None | Option to directly enter your prompt | yes |
+| `-m` | String | `gpt-4` | `gpt-3.5-turbo`, `gpt-4` | Option to select the model | yes |
+| `-t` | Float | `0.3` | Between `0` and `2` | Option to configure the temperature | yes |
+| `-v` | Boolean | `False` | None | Enable verbose mode | yes |
 
 ### Usage
 
@@ -55,11 +55,12 @@ qprom -p "Translate the following English text to French: '{text}'" -m gpt-4 -t 
 
 This will run the script with the provided prompt, using the `gpt-4` model, a temperature of `0.7`, and verbose mode enabled.
 
+#### Multi line promting
+To facilitate multi-line input for the prompt, invoke qprom without utilizing the -p parameter. This will prompt you for your input at runtime, where you can provide multiple lines as needed. To signal the end of your input, simply enter the string 'END'.
+
 ## Todos
 
 * Testing
-* Create and add logo
-* Update readme
 * Add conversation mode
 * Add option to select default model in config
 * Add option to disable streaming and only print the full response
