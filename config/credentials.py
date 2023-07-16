@@ -21,7 +21,7 @@ def get_api_key():
     config = configparser.ConfigParser()
 
     # Get the path to the credentials file
-    credential_path = os.path.join(os.path.expanduser('~'), '.gptcli', 'credentials.ini')
+    credential_path = os.path.join(os.path.expanduser('~'), '.qprom', 'credentials.ini')
 
     # Read the credentials file
     config.read(credential_path)

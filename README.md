@@ -10,6 +10,7 @@ A Python-based CLI tool to quickly interact with OpenAI's GPT models instead of 
 
 1. [Description](#description)
 2. [Installation](#installation)
+3. [Setup](#Setup)
 3. [Usage](#Usage)
 4. [Todos](#Todos)
 5. [License](#License)
@@ -26,6 +27,12 @@ This enables quicker response times and better [data privacy](https://openai.com
 pip install qprom
 ```
 
+## Setup
+
+Make sure you have your [OpenAI API key](https://platform.openai.com/account/api-keys).
+
+When running qprom the script tries to fetch the OpenAI API key from a credentials file located in the `.qprom` folder within the user's home directory. 
+If the API key is not found in the credentials file, the user is prompted to provide it, and the provided key is then stored in the aforementioned credentials file for future use.
 
 ## Usage
 
@@ -69,6 +76,7 @@ This will run qprom with default values model: `gpt-4`, a temperature of `0.7` a
 * Testing
 * Add conversation mode
 * Add option to select default model in config
+* Add option to set the token limit for the conversation modes history
 * Add option to disable streaming and only print the full response
 
 

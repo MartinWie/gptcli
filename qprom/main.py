@@ -1,7 +1,8 @@
 import openai
-from arguments import get_args, get_multiline_input
+from arguments import get_args
 from config.credentials import get_api_key
 from gpt.request import openai_request, print_streamed_response
+from qprom.utils import get_multiline_input
 
 
 def main():
