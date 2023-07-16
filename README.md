@@ -2,7 +2,7 @@
 
 [![OS](https://img.shields.io/badge/Runs%20on%3A-Linux%20%7C%20Mac-green)]() [![RunsOn](https://img.shields.io/github/license/MartinWie/AEnv)](https://github.com/MartinWie/AEnv/blob/master/LICENSE) [![Open Source](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://opensource.org/)
 
-![qprom](https://github.com/MartinWie/qprom/blob/master/qprom_logo.png)
+![qprom](https://github.com/MartinWie/qprom/blob/main/qprom_logo.png)
 
 A Python-based CLI tool to quickly interact with OpenAI's GPT models instead of relying on the web interface.
 
