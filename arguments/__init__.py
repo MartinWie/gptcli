@@ -13,7 +13,7 @@ def get_args():
         prog='gptcli'
     )
 
-    parser.add_argument('-p', metavar='input', type=str, help='Option to directly enter your prompt')
+    parser.add_argument('-p', metavar='input', type=str, help='Option to directly enter your prompt.(Do not use this flag if you intend to have a multi-line prompt.)')
 
     parser.add_argument('-m', default='gpt-4', choices=['gpt-3.5-turbo', 'gpt-4'], help='Option to select the model. '
                                                                                         'Current default: GPT-4')
