@@ -1,3 +1,4 @@
+import sys
 import openai
 from arguments import get_args
 from config.credentials import get_api_key
@@ -14,6 +15,10 @@ def main():
     temperature = args.t
     verbose = args.v
     input_string = args.p
+
+    # Check if stdin has data
+    if not sys.stdin.isatty():
+        input_string = sys.stdin.read().strip()
 
     if input_string is None:
         input_string = get_multiline_input()
