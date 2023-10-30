@@ -71,13 +71,21 @@ qprom
 
 This will run qprom with default values model: `gpt-4`, a temperature of `0.7` and ask for the prompt during runtime.
 
+### Piping console input into qprom 
+Just pipe the prompt into qprom.
+
+```bash
+cat prompt.txt | qprom
+```
+
 ## Todos
 
 * Testing
 * Add conversation mode
 * Add option to select default model in config
+* Update model selection options(gpt-3.5-turbo-16k,..)
 * Add option to re-set the API token
-* Add option to set the token limit for the conversation modes history
+* Add option to set the token limit for the conversation modes history(remove it from the normal request)
 * Add option to disable streaming and only print the full response
 
 
