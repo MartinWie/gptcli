@@ -35,24 +35,29 @@ def main():
     conversation_history = []
 
     while first_loop or conversation_mode:
-        if input_string is None:
-            input_string = get_multiline_input(first_loop)
+        try:
+            if input_string is None:
+                input_string = get_multiline_input(first_loop)
 
-        # Check if we need to prepend history
-        if conversation_history:
-            input_string = prepend_conversation_history(conversation_history, input_string, 6500)
+            # Check if we need to prepend history
+            if conversation_history:
+                input_string = prepend_conversation_history(conversation_history, input_string, 6500)
 
-        # Store the current input with the label
-        conversation_history.append(f"Human input: {input_string}")
+            # Store the current input with the label
+            conversation_history.append(f"Human input: {input_string}")
 
-        response = openai_request(input_string, model, temperature)
-        answer = print_and_return_streamed_response(response)
+            response = openai_request(input_string, model, temperature)
+            answer = print_and_return_streamed_response(response)
 
-        # Store the answer with the label
-        conversation_history.append(f"OpenAI answer: {answer}")
+            # Store the answer with the label
+            conversation_history.append(f"OpenAI answer: {answer}")
 
-        first_loop = False
-        input_string = None
+            first_loop = False
+            input_string = None
+
+        except KeyboardInterrupt:
+            # Handle KeyboardInterrupt's gracefully by exiting the while loop
+            break
 
 
 if __name__ == "__main__":
