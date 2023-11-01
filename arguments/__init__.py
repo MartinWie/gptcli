@@ -10,7 +10,8 @@ def check_range(value):
 
 def get_args():
     parser = argparse.ArgumentParser(
-        prog='gptcli'
+        prog='qprom',
+        description='CLI tool to quickly interact with OpenAIs GPT models instead of relying on the web interface.'
     )
 
     parser.add_argument('-p', metavar='input', type=str, help='Option to directly enter your prompt.(Do not use this flag if you intend to have a multi-line prompt.)')
@@ -22,6 +23,8 @@ def get_args():
                                                                   'between 0 and 2. Current default: 0.3')
 
     parser.add_argument('-v', action='store_true', help='Enable verbose mode')
+
+    parser.add_argument('-c', action='store_true', help="Enables conversation mode")
 
     # Parse the arguments
     args = parser.parse_args()

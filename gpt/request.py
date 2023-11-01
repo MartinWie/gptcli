@@ -51,9 +51,10 @@ def openai_request(prompt: str, model: str, temperature: float):
         return None
 
 
-def print_streamed_response(response):
+def print_and_return_streamed_response(response):
     # create variables to collect the stream of events
     collected_events = []
+    final_output = ""
     # iterate through the stream of events
     for event in response:
         collected_events.append(event)  # save the event response
@@ -61,3 +62,5 @@ def print_streamed_response(response):
             event_text = event['choices'][0]['delta']['content']  # extract the text
             sys.stdout.write(event_text)
             sys.stdout.flush()  # ensures output is displayed immediately
+            final_output += event_text
+    return final_output

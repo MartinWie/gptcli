@@ -81,7 +81,6 @@ cat prompt.txt | qprom
 ## Todos
 
 * Testing
-* Add conversation mode
 * Add option to select default model in config
 * Update model selection options(gpt-3.5-turbo-16k,..)
 * Add option to re-set the API token
