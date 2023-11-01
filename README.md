@@ -37,22 +37,24 @@ If the API key is not found in the credentials file, the user is prompted to pro
 ## Usage
 
 | Argument | Type | Default | Choices | Description                                                                                            | Optional |
-|---|---|---|---|--------------------------------------------------------------------------------------------------------|---|
-| `-p` | String | None | None | Option to directly enter your prompt (Do not use this flag if you intend to have a multi-line prompt.) | yes |
-| `-m` | String | `gpt-4` | `gpt-3.5-turbo`, `gpt-4` | Option to select the model                                                                             | yes |
-| `-t` | Float | `0.3` | Between `0` and `2` | Option to configure the temperature                                                                    | yes |
-| `-v` | Boolean | `False` | None | Enable verbose mode                                                                                    | yes |
+|----------|---|---|---|--------------------------------------------------------------------------------------------------------|---|
+| `-p`     | String | None | None | Option to directly enter your prompt (Do not use this flag if you intend to have a multi-line prompt.) | yes |
+| `-m`     | String | `gpt-4` | `gpt-3.5-turbo`, `gpt-4` | Option to select the model                                                                             | yes |
+| `-t`     | Float | `0.3` | Between `0` and `2` | Option to configure the temperature                                                                    | yes |
+| `-v`     | Boolean | `False` | None | Enable verbose mode                                                                                    | yes |
+| `-c`     | Boolean | `False` | None | Enable conversation mode
 
 ### Usage
 
 ```bash
-qprom -p <prompt> -m <model> -t <temperature> -v
+qprom -p <prompt> -m <model> -t <temperature> -v -c
 ```
 
 - `<prompt>`: Replace with your prompt
 - `<model>`: Replace with either `gpt-3.5-turbo` or `gpt-4`
 - `<temperature>`: Replace with a float value between `0` and `2`
 - `-v`: Add this flag to enable verbose mode
+- `-c`: Add this flag to enable conversation mode
 
 For example:
 
