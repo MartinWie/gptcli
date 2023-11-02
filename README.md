@@ -42,7 +42,7 @@ If the API key is not found in the credentials file, the user is prompted to pro
 | `-m`     | String | `gpt-4` | `gpt-3.5-turbo`, `gpt-4` | Option to select the model                                                                             | yes |
 | `-t`     | Float | `0.3` | Between `0` and `2` | Option to configure the temperature                                                                    | yes |
 | `-v`     | Boolean | `False` | None | Enable verbose mode                                                                                    | yes |
-| `-c`     | Boolean | `False` | None | Enable conversation mode
+| `-c`     | Boolean | `False` | None | Enable conversation mode                                                                               | yes |
 
 ### Usage
 
