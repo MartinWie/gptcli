@@ -7,7 +7,7 @@ def readme():
 
 
 setup(name='qprom',
-      version='0.5.4',
+      version='0.5.5',
       description='A Python-based CLI tool to quickly interact with OpenAIs GPT models instead of relying on the web interface.',
       long_description=readme(),
       long_description_content_type='text/markdown',

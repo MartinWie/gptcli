@@ -71,7 +71,14 @@ To facilitate multi-line input for the prompt, invoke qprom without utilizing th
 qprom
 ```
 
-This will run qprom with default values model: `gpt-4`, a temperature of `0.7` and ask for the prompt during runtime.
+This will run qprom with default values model: `gpt-3.5-turbo`, a temperature of `0.7` and ask for the prompt during runtime.
+
+### Set default model
+
+```bash
+qprom -M <model-name>
+```
+
 
 ### Piping console input into qprom 
 Just pipe the prompt into qprom.
@@ -83,7 +90,6 @@ cat prompt.txt | qprom
 ## Todos
 
 
-* Add option to select default model in config
 * Update model selection options(gpt-3.5-turbo-16k,..)
 * Add option to set the token limit for the conversation modes history(remove it from the normal request)
 * Add option to re-set the API token
