@@ -24,6 +24,8 @@ def get_args():
 
     if not token_limit:
         token_limit = 6500
+    else:
+        token_limit = int(token_limit)
 
     parser.add_argument('-p', metavar='input', type=str, help='Option to directly enter your prompt. (Do not use this '
                                                               'flag if you intend to have a multi-line prompt.)')
@@ -38,6 +40,8 @@ def get_args():
 
     parser.add_argument('-tk', default=token_limit, type=int, help=f'Option to configure the token limit for '
                                                                    f'prompts/history. Current limit: {token_limit}')
+
+    parser.add_argument('-TK', default=None, type=int, help='Sets the default token limit for qprom')
 
     parser.add_argument('-v', action='store_true', help='Enable verbose mode')
 

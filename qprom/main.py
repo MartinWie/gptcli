@@ -20,6 +20,7 @@ def main():
     input_string = args.p
     conversation_mode = args.c
     token_limit = args.tk
+    default_token_limit = args.TK
 
     if default_model:
         model_lst = openai.Model.list()
@@ -30,7 +31,12 @@ def main():
             update_configuration('model', default_model)
         else:
             print(f"Model: {default_model} not found, please use one of the following: {sorted(model_names)}")
-        exit()
+            exit()
+        model = default_model
+
+    if default_token_limit:
+        update_configuration('token_limit', str(default_token_limit))
+        token_limit = default_token_limit
 
     # Check if stdin has data
     if not sys.stdin.isatty():
@@ -39,6 +45,7 @@ def main():
     if verbose:
         print(f"Selected model: {model}")
         print(f"Selected temperature: {temperature}")
+        print(f"Selected token limit: {token_limit}")
         print(f"Conversation mode enabled: {conversation_mode}")
         print(f"Prompt: {input_string}")
         print("Response:")

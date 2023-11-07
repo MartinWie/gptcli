@@ -36,13 +36,16 @@ If the API key is not found in the credentials file, the user is prompted to pro
 
 ## Usage
 
-| Argument | Type | Default | Choices | Description                                                                                            | Optional |
-|----------|---|---|---|--------------------------------------------------------------------------------------------------------|---|
-| `-p`     | String | None | None | Option to directly enter your prompt (Do not use this flag if you intend to have a multi-line prompt.) | yes |
-| `-m`     | String | `gpt-4` | `gpt-3.5-turbo`, `gpt-4` | Option to select the model                                                                             | yes |
-| `-t`     | Float | `0.3` | Between `0` and `2` | Option to configure the temperature                                                                    | yes |
-| `-v`     | Boolean | `False` | None | Enable verbose mode                                                                                    | yes |
-| `-c`     | Boolean | `False` | None | Enable conversation mode                                                                               | yes |
+| Argument | Type    | Default         | Choices                         | Description                                                                                            | Optional |
+|----------|---------|-----------------|---------------------------------|--------------------------------------------------------------------------------------------------------|---|
+| `-p`     | String  | None            | None                            | Option to directly enter your prompt (Do not use this flag if you intend to have a multi-line prompt.) | yes |
+| `-m`     | String  | `gpt-3.5-turbo` | `gpt-3.5-turbo`, `gpt-4`, `...` | Option to select the model                                                                             | yes |
+| `-M`     | String  | `gpt-3.5-turbo` | `gpt-3.5-turbo`, `gpt-4`, `...` | Set the default model                                                                                  | yes |
+| `-t`     | Float   | `0.3`           | Between `0` and `2`             | Option to configure the temperature                                                                    | yes |
+| `-v`     | Boolean | `False`         | None                            | Enable verbose mode                                                                                    | yes |
+| `-c`     | Boolean | `False`         | None                            | Enable conversation mode                                                                               | yes |
+| `-tk`    | String  | `6500`          | None                            | Option to set the currently used token limit                                                           | yes |
+| `-TK`    | String  | `6500`          | None                            | Option to configure the currently used token limit                                                     | yes |
 
 ### Usage
 
@@ -77,6 +80,18 @@ This will run qprom with default values model: `gpt-3.5-turbo`, a temperature of
 
 ```bash
 qprom -M <model-name>
+```
+
+### Set token limit for prompt/conversation
+
+```bash
+qprom -tk <token-limit>
+```
+
+### Set default token limit
+
+```bash
+qprom -TK <token-limit>
 ```
 
 
