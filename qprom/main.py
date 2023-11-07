@@ -2,6 +2,7 @@ import sys
 import openai
 from arguments import get_args
 from config.credentials import get_api_key
+from config.configuration import update_configuration
 from gpt.request import openai_request, print_and_return_streamed_response
 from gpt.util import prepend_conversation_history
 from qprom.utils import get_multiline_input
@@ -13,10 +14,22 @@ def main():
     args = get_args()
 
     model = args.m
+    default_model = args.M
     temperature = args.t
     verbose = args.v
     input_string = args.p
     conversation_mode = args.c
+
+    if default_model:
+        model_lst = openai.Model.list()
+        model_names = []
+        for i in model_lst['data']:
+            model_names.append(i['id'])
+        if default_model in model_names:
+            update_configuration('model', default_model)
+        else:
+            print(f"Model: {default_model} not found, please use one of the following: {sorted(model_names)}")
+        exit()
 
     # Check if stdin has data
     if not sys.stdin.isatty():
@@ -62,4 +75,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

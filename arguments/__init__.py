@@ -1,5 +1,7 @@
 import argparse
 
+from config.configuration import get_configuration
+
 
 def check_range(value):
     ivalue = float(value)
@@ -14,17 +16,25 @@ def get_args():
         description='CLI tool to quickly interact with OpenAIs GPT models instead of relying on the web interface.'
     )
 
-    parser.add_argument('-p', metavar='input', type=str, help='Option to directly enter your prompt.(Do not use this flag if you intend to have a multi-line prompt.)')
+    current_model = get_configuration('model')
 
-    parser.add_argument('-m', default='gpt-4', choices=['gpt-3.5-turbo', 'gpt-4'], help='Option to select the model. '
-                                                                                        'Current default: GPT-4')
+    if not current_model:
+        current_model = 'gpt-3.5-turbo'
+
+    parser.add_argument('-p', metavar='input', type=str, help='Option to directly enter your prompt. (Do not use this '
+                                                              'flag if you intend to have a multi-line prompt.)')
+
+    parser.add_argument('-m', default=current_model, type=str, help=f'Option to select the model. '
+                                                                    f'Current model: {current_model}')
+
+    parser.add_argument('-M', default=None, type=str, help='Sets the default model for qprom')
 
     parser.add_argument('-t', default=0.3, type=check_range, help='Option to configure the temperature:A number '
                                                                   'between 0 and 2. Current default: 0.3')
 
     parser.add_argument('-v', action='store_true', help='Enable verbose mode')
 
-    parser.add_argument('-c', action='store_true', help="Enables conversation mode")
+    parser.add_argument('-c', action='store_true', help='Enables conversation mode')
 
     # Parse the arguments
     args = parser.parse_args()
