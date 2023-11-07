@@ -17,9 +17,13 @@ def get_args():
     )
 
     current_model = get_configuration('model')
+    token_limit = get_configuration('token_limit')
 
     if not current_model:
         current_model = 'gpt-3.5-turbo'
+
+    if not token_limit:
+        token_limit = 6500
 
     parser.add_argument('-p', metavar='input', type=str, help='Option to directly enter your prompt. (Do not use this '
                                                               'flag if you intend to have a multi-line prompt.)')
@@ -31,6 +35,9 @@ def get_args():
 
     parser.add_argument('-t', default=0.3, type=check_range, help='Option to configure the temperature:A number '
                                                                   'between 0 and 2. Current default: 0.3')
+
+    parser.add_argument('-tk', default=token_limit, type=int, help=f'Option to configure the token limit for '
+                                                                   f'prompts/history. Current limit: {token_limit}')
 
     parser.add_argument('-v', action='store_true', help='Enable verbose mode')
 

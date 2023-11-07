@@ -19,6 +19,7 @@ def main():
     verbose = args.v
     input_string = args.p
     conversation_mode = args.c
+    token_limit = args.tk
 
     if default_model:
         model_lst = openai.Model.list()
@@ -54,12 +55,15 @@ def main():
 
             # Check if we need to prepend history
             if conversation_history:
-                input_string = prepend_conversation_history(conversation_history, input_string, 6500)
+                input_string = prepend_conversation_history(conversation_history, input_string, token_limit)
 
             # Store the current input with the label
             conversation_history.append(f"Human input: {input_string}")
 
-            response = openai_request(input_string, model, temperature)
+            response = openai_request(input_string, model, temperature, token_limit)
+            if response is None:
+                exit()
+
             answer = print_and_return_streamed_response(response)
 
             # Store the answer with the label

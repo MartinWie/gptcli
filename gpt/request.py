@@ -4,11 +4,11 @@ import openai
 from gpt.util import get_token_amount_from_string
 
 
-def openai_request(prompt: str, model: str, temperature: float):
-    TOKEN_LIMIT = 6500
-    if get_token_amount_from_string(prompt) > TOKEN_LIMIT:
-        print(f"Token amount of {get_token_amount_from_string(prompt)} is to big. Stay below {TOKEN_LIMIT}!")
-        return
+def openai_request(prompt: str, model: str, temperature: float, token_limit: int):
+
+    if get_token_amount_from_string(prompt) > token_limit:
+        print(f"Token amount of {get_token_amount_from_string(prompt)} is to big. Stay below {token_limit}!")
+        exit()
     try:
         response = openai.ChatCompletion.create(
             model=model,
