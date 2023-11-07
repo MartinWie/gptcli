@@ -82,11 +82,12 @@ cat prompt.txt | qprom
 
 ## Todos
 
-* Testing
+
 * Add option to select default model in config
 * Update model selection options(gpt-3.5-turbo-16k,..)
-* Add option to re-set the API token
 * Add option to set the token limit for the conversation modes history(remove it from the normal request)
+* Add option to re-set the API token
+* Testing
 * Add option to disable streaming and only print the full response
 
 
