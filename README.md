@@ -104,6 +104,7 @@ cat prompt.txt | qprom
 
 ## Todos
 
+* Cleanup project / refactoring
 * Add option to set default temperature
 * Add option to re-set the API token
 * Testing
