@@ -1,15 +1,17 @@
 import sys
-import openai
+
+from openai import OpenAI
+
 from arguments import get_args
-from config.credentials import get_api_key
 from config.configuration import update_configuration
+from config.credentials import get_api_key
 from gpt.request import openai_request, print_and_return_streamed_response
 from gpt.util import prepend_conversation_history
 from qprom.utils import get_multiline_input
 
 
 def main():
-    openai.api_key = get_api_key()
+    client = OpenAI(api_key=get_api_key())
 
     args = get_args()
 
@@ -23,10 +25,10 @@ def main():
     default_token_limit = args.TK
 
     if default_model:
-        model_lst = openai.Model.list()
+        model_lst = client.models.list()
         model_names = []
-        for i in model_lst['data']:
-            model_names.append(i['id'])
+        for i in model_lst:
+            model_names.append(i.id)
         if default_model in model_names:
             update_configuration('model', default_model)
         else:
@@ -67,7 +69,7 @@ def main():
             # Store the current input with the label
             conversation_history.append(f"Human input: {input_string}")
 
-            response = openai_request(input_string, model, temperature, token_limit)
+            response = openai_request(client, input_string, model, temperature, token_limit)
             if response is None:
                 exit()
 
